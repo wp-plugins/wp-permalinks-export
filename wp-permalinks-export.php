@@ -1,9 +1,9 @@
 <?php
 /*
 Plugin Name: WP Permalinks Export
-Plugin URI: http://blog.meow.fr/wp-permalinks-export
+Plugin URI: http://www.meow.fr
 Description: Export all permalinks (posts, pages) along with titles.
-Version: 0.1
+Version: 0.2
 Author: Jordy Meow
 Author URI: http://www.meow.fr
 
