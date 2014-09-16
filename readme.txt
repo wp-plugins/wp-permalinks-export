@@ -1,6 +1,6 @@
 === WP Permalinks Export ===
 Contributors: TigrouMeow
-Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=JAWE2XWH7ZE5U
+Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=H2S7S3G4XMJ6J
 Tags: management, admin, export, posts, pages
 Requires at least: 3.9.0
 Tested up to: 4.0
@@ -32,6 +32,9 @@ Please contact me through <a href='http://www.meow.fr'>my website</a>. Thanks!
 1. Media -> Clean
 
 == Changelog ==
+
+= 0.2 =
+* Works with WP 4.
 
 = 0.1 =
 * First release.
