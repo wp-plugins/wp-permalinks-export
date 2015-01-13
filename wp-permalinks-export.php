@@ -3,7 +3,7 @@
 Plugin Name: WP Permalinks Export
 Plugin URI: http://www.meow.fr
 Description: Export all permalinks (posts, pages) along with titles.
-Version: 0.4
+Version: 0.5
 Author: Jordy Meow
 Author URI: http://www.meow.fr
 
@@ -75,7 +75,16 @@ if ( is_admin() ) {
 				}
 				$categories = implode( ', ', wp_get_post_categories( $post->ID, array( 'fields' => 'names' ) ) );
 				$tags = implode( ', ', wp_get_post_tags( $post->ID, array( 'fields' => 'names' ) ) );
-				$wpml = $has_wpml ? ( "\t" . wpml_get_language_information( $post->ID )['display_name'] ) : "";
+				$wpml = "";
+				if ( $has_wpml ) {
+					$info = wpml_get_language_information( $post->ID );
+					if ( isset( $info[ 'display_name' ] ) ) {
+						$wpml = "\t" . $info[ 'display_name' ];
+					}
+					else {
+						$wpml = "\tN/A";
+					}
+				}
 				echo "{$post->post_type}$wpml\t{$post->post_title}\t{$permalink}\t{$categories}\t{$tags}\n";
 			}
 			exit;
