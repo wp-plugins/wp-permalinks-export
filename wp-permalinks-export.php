@@ -3,7 +3,7 @@
 Plugin Name: WP Permalinks Export
 Plugin URI: http://www.meow.fr
 Description: Export all permalinks (posts, pages) along with titles.
-Version: 0.2
+Version: 0.4
 Author: Jordy Meow
 Author URI: http://www.meow.fr
 
@@ -47,7 +47,14 @@ if ( is_admin() ) {
 			header('Content-type:text/plain');
 			$posts = new WP_Query('post_type=any&posts_per_page=-1&suppress_filters=1&post_status=publish');
 			$posts = $posts->posts;
-			echo "Type\tTitle\tPermalink\n";
+
+			$has_wpml = function_exists( 'wpml_get_language_information' );
+			if ( $has_wpml ) {
+				echo "Type\tLanguage\tTitle\tPermalink\tCategories\tTags\n";
+			}
+			else {
+				echo "Type\tTitle\tPermalink\tCategories\tTags\n";
+			}
 			foreach($posts as $post) {
 				switch ($post->post_type) {
 					case 'revision':
@@ -66,7 +73,10 @@ if ( is_admin() ) {
 						//$permalink = get_post_permalink($post->ID);
 						break;
 				}
-				echo "{$post->post_type}\t{$post->post_title}\t{$permalink}\n";
+				$categories = implode( ', ', wp_get_post_categories( $post->ID, array( 'fields' => 'names' ) ) );
+				$tags = implode( ', ', wp_get_post_tags( $post->ID, array( 'fields' => 'names' ) ) );
+				$wpml = $has_wpml ? ( "\t" . wpml_get_language_information( $post->ID )['display_name'] ) : "";
+				echo "{$post->post_type}$wpml\t{$post->post_title}\t{$permalink}\t{$categories}\t{$tags}\n";
 			}
 			exit;
 		}

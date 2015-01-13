@@ -4,7 +4,7 @@ Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_i
 Tags: management, admin, export, posts, pages
 Requires at least: 3.9.0
 Tested up to: 4.0
-Stable tag: 0.2
+Stable tag: 0.4
 
 Export all permalinks (posts, pages) along with titles.
 
@@ -32,6 +32,9 @@ Please contact me through <a href='http://www.meow.fr'>my website</a>. Thanks!
 1. Media -> Clean
 
 == Changelog ==
+
+= 0.4 =
+* Add: categories, tags, and languages if WPML is installed.
 
 = 0.2 =
 * Works with WP 4.
