@@ -3,7 +3,7 @@ Contributors: TigrouMeow
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=H2S7S3G4XMJ6J
 Tags: management, admin, export, posts, pages
 Requires at least: 3.9.0
-Tested up to: 4.1
+Tested up to: 4.2.0
 Stable tag: 0.5
 
 Export all permalinks (posts, pages) along with titles.
